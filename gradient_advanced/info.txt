@@ -1,0 +1,6 @@
+Advanced gradient descent algorithm
+Lambda: 0.01
+Eta: 0.005
+Epochs: 500
+
+In sample RMSE: 0.532379
