@@ -12,6 +12,7 @@ global movie_devs_file;
 
 load_data = true;
 save_data = true;
+use_devs = false;
 
 users_file = 'users.txt';
 movies_file = 'movies.txt';
@@ -25,7 +26,7 @@ num_features = 20;
 lambda = 0.01;
 eta = 0.005;
 avg_rating = 3.5299;
-num_epochs = 0;
+num_epochs = 300;
 
 data_file = 'data.txt';
 
@@ -34,21 +35,28 @@ movie_avg = compute_average(ratings);
 
 if load_data
     [users, movies] = load_features();
-    [user_devs, movie_devs] = load_devs();
+    if use_devs
+        [user_devs, movie_devs] = load_devs();
+    end
 else
     % Initialize features randomly
     users = randn(num_features, num_users);
     movies = randn(num_features, num_movies);
-    user_devs = randn(num_users, 1);
-    movie_devs = randn(num_movies, 1);
+    if use_devs
+        user_devs = randn(num_users, 1);
+        movie_devs = randn(num_movies, 1);
+    end
 end
 
 % Train the features using stochastic gradient descent
 %[users, movies] = train_gradient(users, movies, ratings, num_epochs);
-[users, movies, user_devs, movie_devs] = train_gradient_advanced(...
-   users, movies, user_devs, movie_devs, ratings, num_epochs);
+%[users, movies, user_devs, movie_devs] = train_gradient_advanced(...
+%   users, movies, user_devs, movie_devs, ratings, num_epochs);
+[users, movies] = train_als(users, movies, ratings, num_epochs);
 
 if save_data
     save_features(users, movies);
-    save_devs(user_devs, movie_devs);
+    if use_devs
+        save_devs(user_devs, movie_devs);
+    end
 end

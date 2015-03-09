@@ -1,0 +1,4 @@
+Alternating Least Squares
+Epochs: 500
+
+In-sample RMSE: 0.508228
