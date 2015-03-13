@@ -1,6 +1,5 @@
 function [user_devs, movie_devs] = load_devs()
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Loads the user and movie biases from a text file
     
     global user_devs_file;
     global movie_devs_file;

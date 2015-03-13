@@ -1,6 +1,5 @@
 function [users, movies] = load_features()
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Loads the user and movie features from a text file
     
     global users_file;
     global movies_file;

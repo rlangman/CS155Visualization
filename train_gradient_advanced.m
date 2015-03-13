@@ -41,6 +41,15 @@ function [users, movies, user_devs, movie_devs] = ...
 
             movies(:, m) = movies(:, m) - eta * (lambda * movies(:, m) ...
                 - 2 * e * tempU);
+            
+            %{
+            This is how Yisong would handle the regularization
+            users = users - eta * (lambda / num_ratings) * users;
+            movies = movies - eta * (lambda / num_ratings) * movies;
+            user_devs = user_devs - eta * (lambda / num_ratings) * users_devs;
+            movie_devs = movie_devs - eta * (lambda / num_ratings) * movie_devs;
+            %}
+            
         end
         
         error = getRMSE(users, movies, user_devs, movie_devs, ratings);

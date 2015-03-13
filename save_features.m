@@ -1,6 +1,6 @@
 function [] = save_features(users, movies)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Saves the user and movie features into a text file that can be easily
+%   reloaded later.
     
     global users_file;
     global movies_file;

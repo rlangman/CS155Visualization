@@ -1,6 +1,6 @@
 function [] = save_devs(user_devs, movie_devs)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Saves the user and movie biases into a text file that can be easily
+%   reloaded later.
     
     global user_devs_file;
     global movie_devs_file;
