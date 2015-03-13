@@ -7,7 +7,7 @@ import unicodedata
 # This index corresponds to the genre in the
 # file movies.txt or trymovies.txt
 # i.e., 3 is Action, 4 is Adventure, and so on
-idxgenre = 3 
+idxgenre = 4 
 raw_data = np.loadtxt("moviesSVD.txt")
 
 # Applying SVD
@@ -31,9 +31,6 @@ with open('trymovies.txt', 'rb') as f:
             indexgenres[genre] = numrows
             genre += 1
         numrows += 1
-
-#print indexgenres[:genre]
-#print [songnames[x] for x in indexgenres[:genre]]
 
 # Some random movie groupings
 batmanmovies = [28, 230, 253, 402]
